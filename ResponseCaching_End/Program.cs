@@ -21,7 +21,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 builder.Services.AddTransient<DataInitializer>();
 builder.Services.AddTransient<IPersonService,PersonService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
-//builder.Services.AddResponseCaching();
+builder.Services.AddResponseCaching();
 var app = builder.Build();
 
 
@@ -45,7 +45,6 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-//app.UseResponseCaching();
 app.MapRazorPages();
-
+app.UseResponseCaching();
 app.Run();
